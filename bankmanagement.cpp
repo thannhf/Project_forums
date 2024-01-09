@@ -203,26 +203,26 @@ void modify_account(int n){//khai báo phương thức modify_account() với ki
 			ac.modify();//chạy phương thức modify
 			int pos = (-1) * static_cast<int>(sizeof(account));//khai báo biến pos kiểu int gán giá trị: Nhân giá trị -1 với kích thước của account đã được chuyển đổi thành int, tạo ra một giá trị nguyên âm bằng tổng kích thước của account nhân với -1
 			File.seekp(pos,ios::cur); //fncallat1353 //di chuyển con trỏ của file File đến vị trí pos theo hướng hiện tại.
-		    File.write(reinterpret_cast<char *> (&ac), sizeof(account));
-		    cout << "\n\n\t\t\tRecord Updated";
-		    found = true;
+		    File.write(reinterpret_cast<char *> (&ac), sizeof(account));//đọc data trong file File trong địa chỉ ac kiểu ký tự char, lấy kích thước account
+		    cout << "\n\n\t\t\tRecord Updated";//hiển thị thông báo
+		    found = true;//thay đổi value thành true cho phép chạy
 		}
 	}
-	File.close();
-	if(found == false)
-		cout << "\n\n\t\t\tRecord Not Found ";
+	File.close();//đóng file
+	if(found == false)//nếu value của found bằng false thì
+		cout << "\n\n\t\t\tRecord Not Found ";//hiển thị thông báo
 }
 
-void delete_account(int n){
-	account ac;
-	ifstream inFile;
-	ofstream outFile;
-	inFile.open("account.dat", ios::binary);
-	if(!inFile){
-		cout<<"File could not be open !! Press any Key...";
-		return;
+void delete_account(int n){//khai báo phương thức kiểu void lấy một tham số n kiểu int
+	account ac;//khai báo một đối tượng ac, ac tham chiếu/ thuộc lớp account hay ac là biến dùng để thuận lợi cho việc đặt biến sau này
+	ifstream inFile;//khai báo biến của kiểu ifstream. Biến inFile sẽ được sử dụng để đọc dữ liệu từ một tệp
+	ofstream outFile;//khai báo biến thuộc lớp ofstream. Biến outFile sẽ được sử dụng để ghi dữ liệu vào một tệp
+	inFile.open("account.dat", ios::binary);//mở tệp account.dat ở chế độ nhị phân để đọc
+	if(!inFile){//nếu không tồn tại inFile(file account.dat không tồn tại) thì
+		cout<<"File could not be open !! Press any Key...";//hiển thị thông báo
+		return;//không trả về gì cả
 	}
-	outFile.open("Temp.dat", ios::binary);
+	outFile.open("Temp.dat", ios::binary);//mở têp Temp.dat và ghi dữ liệu vào dưới dạng nhị phân
 	inFile.seekg(0, ios::beg);
 	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account))){
 		if(ac.retacno() != n){
