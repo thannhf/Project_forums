@@ -237,31 +237,31 @@ void delete_account(int n){//khai báo phương thức kiểu void lấy một t
 }
 
 void display_all(){//khai báo một phương thức với kiểu void
-	system("CLS");
-	account ac;
-	ifstream inFile;
-	inFile.open("account.dat",ios::binary);
-	if(!inFile){
-		cout<<"File could not be open !! Press any Key...";
-		return;
+	system("CLS");//lệnh gọi hệ thống thực hiện lệnh cls trong hệ điều hành Windows. Lệnh cls sẽ xóa màn hình console, bao gồm tất cả văn bản đã được in ra màn hình
+	account ac;//khai báo một đối tượng ac, ac tham chiếu/ thuộc lớp account hay ac là biến dùng để thuận lơi cho việc đặt biến sau này
+	ifstream inFile;//khai báo biến của kiểu ifstream. Biến inFile sẽ được sử dụng để đọc dữ liệu từ một tệp
+	inFile.open("account.dat",ios::binary);//mở têp account.dat và ghi dữ liệu vào dưới dạng nhị phân
+	if(!inFile){//nếu không tồn tại
+		cout<<"File could not be open !! Press any Key...";//hiển thị thông báo
+		return;//không trả về gì cả
 	}
 	//hiển thị thông báo
 	cout<<"\n\n\t\tACCOUNT HOLDER LIST\n\n";
 	cout<<"====================================================\n";
 	cout<<"A/c no.      NAME           Type  Balance\n";
 	cout<<"====================================================\n";
-	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account))){
-		ac.report();
+	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account))){//lặp while đọc dữ liệu từ một tập tin vào bộ nhớ ac, chuyển đổi địa chỉ của biến ac từ kiểu con trỏ ban đầu sang kiểu char * (con trỏ ký tự), lấy kích thước và kiểu dữ liệu của account
+		ac.report();//ac chạy hàm report
 	}
-	inFile.close();
+	inFile.close();//đóng file inFile
 }
 
-void deposit_withdraw(int n, int option){
-	int amt;
-	bool found=false;
-	account ac;
-	fstream File;
-    File.open("account.dat", ios::binary|ios::in|ios::out);
+void deposit_withdraw(int n, int option){//khai báo một phương thức với kiểu void lấy hai tham số kiểu int là n và option
+	int amt;//khởi tạo biến amt kiểu số nguyên
+	bool found=false;//khởi tạo biến found gán giá trị false kiểu boolean
+	account ac;//khai báo một đối tượng ac, ac tham chiếu/ thuộc lớp account hay ac là biến dùng để thuận lơi cho việc đặt biến sau này
+	fstream File;//cho phép đọc và ghi dữ liệu vào các tập tin
+    File.open("account.dat", ios::binary|ios::in|ios::out);//mở tập tin "account.dat" ở chế độ nhị phân, cho phép chương trình vừa đọc vừa ghi dữ liệu vào tập tin.
 	if(!File){//nếu không tồn tại File thì
 		cout<<"File could not be open !! Press any Key...";//hiển thị thông báo
 		return;//không trả về gì cả
