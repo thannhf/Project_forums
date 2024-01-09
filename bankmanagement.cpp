@@ -223,20 +223,20 @@ void delete_account(int n){//khai báo phương thức kiểu void lấy một t
 		return;//không trả về gì cả
 	}
 	outFile.open("Temp.dat", ios::binary);//mở têp Temp.dat và ghi dữ liệu vào dưới dạng nhị phân
-	inFile.seekg(0, ios::beg);
-	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account))){
-		if(ac.retacno() != n){
-			outFile.write(reinterpret_cast<char *> (&ac), sizeof(account));
+	inFile.seekg(0, ios::beg);//di chuyển con trỏ vị trí về vị trí bắt đầu của tệp, sau đó chương trình sẽ đọc dữ liệu từ tệp và in ra màn hình
+	while(inFile.read(reinterpret_cast<char *> (&ac), sizeof(account))){//tạo một vòng lặp while đọc dữ liệu nhị phân từ file inFile và lưu trữ vào địa chỉ ac(biến ac) dưới dạng các ký tự, lấy kích thước của account
+		if(ac.retacno() != n){//nếu dữ liệu trong ac không bằng n, thì 
+			outFile.write(reinterpret_cast<char *> (&ac), sizeof(account));//ghi dữ liệu nhị phân từ biến ac vào file outFile kiểu ký tự, lấy kích thước account
 		}
 	}
-    inFile.close();
-	outFile.close();
-	remove("account.dat");
-	rename("Temp.dat","account.dat");
-	cout<<"\n\nRecord Deleted ..";
+    inFile.close();//đóng file inFile
+	outFile.close();//đóng file outFile
+	remove("account.dat");//gỡ file account.dat
+	rename("Temp.dat","account.dat");//đổi tên file Temp.dat thành account.dat
+	cout<<"\n\nRecord Deleted ..";//hiển thị thông báo
 }
 
-void display_all(){
+void display_all(){//khai báo một phương thức với kiểu void
 	system("CLS");
 	account ac;
 	ifstream inFile;
@@ -262,24 +262,24 @@ void deposit_withdraw(int n, int option){
 	account ac;
 	fstream File;
     File.open("account.dat", ios::binary|ios::in|ios::out);
-	if(!File){
-		cout<<"File could not be open !! Press any Key...";
-		return;
+	if(!File){//nếu không tồn tại File thì
+		cout<<"File could not be open !! Press any Key...";//hiển thị thông báo
+		return;//không trả về gì cả
 	}
 	while(!File.eof() && found==false){
 		File.read(reinterpret_cast<char *> (&ac), sizeof(account));
 		if(ac.retacno()==n){
 			ac.show_account();
 			if(option==1){
-				cout<<"\n\n\t\t\tTO DEPOSITSS AMOUNT";
-				cout<<"\n\n\t\t\tEnter The amount to be deposited: ";
-				cin>>amt;
+				cout<<"\n\n\t\t\tTO DEPOSITSS AMOUNT";//hiển thị thông báo
+				cout<<"\n\n\t\t\tEnter The amount to be deposited: ";//hiển thị thông báo
+				cin >> amt;//lấy data và lưu vào biến amt
 				ac.dep(amt);
 			}
 		    if(option==2){
-				cout<<"\n\n\t\t\tTO WITHDRAW AMOUNT";
-				cout<<"\n\n\t\t\tEnter The amount to be withdraw: ";
-				cin>>amt;
+				cout<<"\n\n\t\t\tTO WITHDRAW AMOUNT";//hiển thị thông báo
+				cout<<"\n\n\t\t\tEnter The amount to be withdraw: ";//hiển thị thông báo
+				cin >> amt;//lấy dữ liệu và lưu vào biến amt
 				int bal=ac.retdeposit()-amt;
 				if(bal<0)
 					cout<<"Insufficience balance";
@@ -289,11 +289,11 @@ void deposit_withdraw(int n, int option){
 			int pos=(-1)*static_cast<int>(sizeof(ac));
 			File.seekp(pos,ios::cur);//fn1353
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
-			cout<<"\n\n\t\t\tRecord Updated";
-			found=true;
+			cout<<"\n\n\t\t\tRecord Updated";//hiển thị thông báo
+			found = true;//found bằng true cho phép thực hiện lệnh
 	       }
          }
-    File.close();
-	if(found==false)
-		cout<<"\n\n\t\t\tRecord Not Found ";
+    File.close();//đóng file File
+	if(found == false)//nếu found = false thì
+		cout << "\n\n\t\t\tRecord Not Found ";//hiển thị thông báo
 }
