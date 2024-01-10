@@ -280,15 +280,15 @@ void deposit_withdraw(int n, int option){//khai báo một phương thức với
 				cout<<"\n\n\t\t\tTO WITHDRAW AMOUNT";//hiển thị thông báo
 				cout<<"\n\n\t\t\tEnter The amount to be withdraw: ";//hiển thị thông báo
 				cin >> amt;//lấy dữ liệu và lưu vào biến amt
-				int bal = ac.retdeposit() - amt;
-				if(bal < 0)
-					cout << "Insufficience balance";
-				else
-					ac.draw(amt);
+				int bal = ac.retdeposit() - amt;//khai báo biến bal kiểu số nguyên và gán giá trị trả về số còn lại sau khi đã trừ đi số trong biến amt 
+				if(bal < 0)//nếu số còn lại trong bal < 0 thì
+					cout << "Insufficience balance";//hiển thị thông báo
+				else //nếu số còn lại trong bal > 0 thì
+					ac.draw(amt);//ac chạy hàm draw lấy amt làm đối số
 		      }
-			int pos=(-1)*static_cast<int>(sizeof(ac));
-			File.seekp(pos,ios::cur);//fn1353
-			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
+			int pos = (-1) * static_cast<int>(sizeof(ac));//khai báo biến pos kiểu số nguyên gán giá trị: kích thước của đối tượng ac ép kiểu kích thước này thành giá trị số nguyên để nhân cho -1 tạo ra một kết quả âm, dùng để biểu thị một vị trí bắt đầu từ cuối đối tượng ac 
+			File.seekp(pos,ios::cur);//fn1353 //di chuyển con trỏ đọc hoặc ghi của luồng File đến vị trí pos kể từ vị trí hiện tại.
+			File.write(reinterpret_cast<char *> (&ac), sizeof(account));//thực hiện việc ghi nội dung của biến ac (kiểu account) vào luồng File, ép kiểu địa chỉ của biến ac thành con trỏ kiểu char *, cho phép chúng ta xem nội dung của ac như một chuỗi các byte
 			cout<<"\n\n\t\t\tRecord Updated";//hiển thị thông báo
 			found = true;//found bằng true cho phép thực hiện lệnh, nếu đã tìm được ký tự/ đối tượng trong tệp thì found = true dừng vòng lặp
 	       }
