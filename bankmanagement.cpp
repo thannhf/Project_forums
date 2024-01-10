@@ -266,23 +266,23 @@ void deposit_withdraw(int n, int option){//khai báo một phương thức với
 		cout<<"File could not be open !! Press any Key...";//hiển thị thông báo
 		return;//không trả về gì cả
 	}
-	while(!File.eof() && found==false){
-		File.read(reinterpret_cast<char *> (&ac), sizeof(account));
-		if(ac.retacno()==n){
-			ac.show_account();
-			if(option==1){
+	while(!File.eof() && found==false){//đọc dữ liệu từ tệp vẫn tiếp tục khi chưa đến cuối tệp, nếu chưa tìm thấy giá trị/đối tượng cụ thể nào đó trong tệp thì found = false vòng lặp tiếp tục, nếu tìm được thì found = true và dùng vòng lặp
+		File.read(reinterpret_cast<char *> (&ac), sizeof(account));//lặp đọc dữ liệu từ một tập tin vào bộ nhớ ac, chuyển đổi địa chỉ của biến ac từ kiểu con trỏ ban đầu sang kiểu char (con trỏ ký tự), lấy kích thước và kiểu dữ liệu của account
+		if(ac.retacno() == n){//nếu dữ liệu trong file ac chạy hàm nếu bằng n thì
+			ac.show_account();//hiển thị thông tin trùng khớp
+			if(option == 1){//nếu option = 1 thì
 				cout<<"\n\n\t\t\tTO DEPOSITSS AMOUNT";//hiển thị thông báo
 				cout<<"\n\n\t\t\tEnter The amount to be deposited: ";//hiển thị thông báo
 				cin >> amt;//lấy data và lưu vào biến amt
-				ac.dep(amt);
+				ac.dep(amt);//ac chạy phương thức đep lấy amt làm đối số
 			}
-		    if(option==2){
+		    if(option==2){//nếu option = 2 thì
 				cout<<"\n\n\t\t\tTO WITHDRAW AMOUNT";//hiển thị thông báo
 				cout<<"\n\n\t\t\tEnter The amount to be withdraw: ";//hiển thị thông báo
 				cin >> amt;//lấy dữ liệu và lưu vào biến amt
-				int bal=ac.retdeposit()-amt;
-				if(bal<0)
-					cout<<"Insufficience balance";
+				int bal = ac.retdeposit() - amt;
+				if(bal < 0)
+					cout << "Insufficience balance";
 				else
 					ac.draw(amt);
 		      }
@@ -290,10 +290,10 @@ void deposit_withdraw(int n, int option){//khai báo một phương thức với
 			File.seekp(pos,ios::cur);//fn1353
 			File.write(reinterpret_cast<char *> (&ac), sizeof(account));
 			cout<<"\n\n\t\t\tRecord Updated";//hiển thị thông báo
-			found = true;//found bằng true cho phép thực hiện lệnh
+			found = true;//found bằng true cho phép thực hiện lệnh, nếu đã tìm được ký tự/ đối tượng trong tệp thì found = true dừng vòng lặp
 	       }
          }
     File.close();//đóng file File
-	if(found == false)//nếu found = false thì
+	if(found == false)//nếu không tìm thấy ký tự/ đối tượng thì found = false thì
 		cout << "\n\n\t\t\tRecord Not Found ";//hiển thị thông báo
 }
