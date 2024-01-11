@@ -3,24 +3,24 @@
 #include <iostream>//khai báo thư viện iostream. Thư viện iostream cung cấp các hàm và đối tượng để thực hiện input và output chuẩn (standard input/output)
 #include <string.h>//khai báo thư viện string.h. Thư viện string.h cung cấp các hàm và macro để thao tác với các chuỗi ký tự
 #define MAX 100//định nghĩa một hằng số với tên MAX và giá trị là 100, tiện lợi cho việc sử dụng biến sau này
-using namespace std;
+using namespace std;//đưa toàn bộ không gian tên std vào phạm vi hiện tại của chương trình
 
-struct SinhVien {
-    int id;
-    char ten[30];
-    char gioiTinh[5];
-    int tuoi;
-    float diemToan;
-    float diemLy;
-    float diemHoa;
-    float diemTB = 0;
-    char hocluc[10] = "-";
+struct SinhVien {//định nghĩa một kiểu dữ liệu có cấu trúc (struct) có tên là SinhVien. Một struct là một kiểu dữ liệu tùy chỉnh, được sử dụng để lưu trữ các biến có kiểu dữ liệu khác nhau ở một đối tượng duy nhất.
+    int id;//khai báo đối tượng id kiểu số nguyên
+    char ten[30];//khai báo đối tượng ten kiểu ký tự giới hạn 30 ký tự
+    char gioiTinh[5];//khai báo đối tượng gioitinh kiểu ký tự giới hạn 5 ký tự
+    int tuoi;//khai báo đối tượng tuoi kiểu số nguyên
+    float diemToan;//khai báo đối tượng diemtoan kiểu float
+    float diemLy;//khai báo đối tượng diemly kiểu float
+    float diemHoa;//khai báo đối tượng diemhoa kiểu float
+    float diemTB = 0;//khai báo đối tượng diemTB kiểu float gán giá trị bằng 0
+    char hocluc[10] = "-";//khai báo điểm hocluc kiểu ký tự 
 };
 
-typedef SinhVien SV;
+typedef SinhVien SV;//sử dụng typedef tạo một bí danh(biến) cho struct sinhvien, tiện lợi cho việc sử dụng biến sau này
 
-void printLine(int n);
-void nhapThongTinSV(SV &sv, int id);
+void printLine(int n);//khai báo một phương thức kiểu void lấy một tham số n kiểu số nguyên
+void nhapThongTinSV(SV &sv, int id);//khai báo một phương thức kiểu void lấy một tham số là địa chỉ &sv cho bí danh typedef SV, một tham số là id kiểu số nguyên
 void nhapSV(SV a[], int id, int n);
 void capNhatThongTinSV(SV &sv);
 void capNhatSV(SV a[], int id, int n);
