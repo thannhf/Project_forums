@@ -1,8 +1,8 @@
-#include<conio.h>
-#include<stdio.h>
-#include <iostream>
-#include <string.h>
-#define MAX 100
+#include<conio.h>//khai báo thư viện conio.h. Thư viện conio.h cung cấp các hàm và macro để tương tác với màn hình console
+#include<stdio.h>//khai báo thư viện stdio.h. Thư viện stdio.h cung cấp các hàm và macro để thực hiện input và output chuẩn (standard input/output)
+#include <iostream>//khai báo thư viện iostream. Thư viện iostream cung cấp các hàm và đối tượng để thực hiện input và output chuẩn (standard input/output)
+#include <string.h>//khai báo thư viện string.h. Thư viện string.h cung cấp các hàm và macro để thao tác với các chuỗi ký tự
+#define MAX 100//định nghĩa một hằng số với tên MAX và giá trị là 100, tiện lợi cho việc sử dụng biến sau này
 using namespace std;
 
 struct SinhVien {
