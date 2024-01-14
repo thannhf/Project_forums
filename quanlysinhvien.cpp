@@ -21,24 +21,24 @@ typedef SinhVien SV;//sử dụng typedef tạo một bí danh(biến) cho struc
 
 void printLine(int n);//khai báo một phương thức kiểu void lấy một tham số n kiểu số nguyên
 void nhapThongTinSV(SV &sv, int id);//khai báo một phương thức kiểu void lấy một tham số là địa chỉ &sv cho bí danh typedef SV, một tham số là id kiểu số nguyên
-void nhapSV(SV a[], int id, int n);
-void capNhatThongTinSV(SV &sv);
-void capNhatSV(SV a[], int id, int n);
-int xoaTheoID(SV a[], int id, int n);
-void timKiemTheoTen(SV a[], char ten[], int n);
-void tinhDTB(SV &sv);
-void xeploai(SV &sv);
-int idLonNhat(SV a[], int n);
-void sapxepTheoDTB(SV a[], int n);
-void sapXepTheoTen(SV a[], int n);
-void showStudent(SV a[], int n);
-int docFile(SV a[], char fileName[]);
-void ghiFile(SV a[], int n, char fileName[]);
-void pressAnyKey();
+void nhapSV(SV a[], int id, int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là id kiểu số nguyên, một tham số là n kiểu số nguyên
+void capNhatThongTinSV(SV &sv);//khai báo một phương thức kiểu void lấy một tham số là biến địa chỉ tham chiếu của SV
+void capNhatSV(SV a[], int id, int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là id kiểu int, một tham số là n kiểu int
+int xoaTheoID(SV a[], int id, int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là id kiểu số nguyên, một tham số là n kiểu số nguyên
+void timKiemTheoTen(SV a[], char ten[], int n);////khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là một mảng kiểu ký tự, một tham số n kiểu số nguyên
+void tinhDTB(SV &sv);//khai báo một phương thức kiểu void lấy một tham số là địa chỉ tham chiếu của SV
+void xeploai(SV &sv);//khai báo một phương thức kiểu void lấy một tham số là địa chỉ tham chiếu của SV
+int idLonNhat(SV a[], int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là n kiểu số nguyên
+void sapxepTheoDTB(SV a[], int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là n kiểu số nguyên
+void sapXepTheoTen(SV a[], int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là n kiểu số nguyên
+void showStudent(SV a[], int n);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là n kiểu số nguyên
+int docFile(SV a[], char fileName[]);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số là một mảng kiểu ký tự
+void ghiFile(SV a[], int n, char fileName[]);//khai báo một phương thức kiểu void lấy một tham số là mảng có kiểu dữ liệu là cấu trúc SV, một tham số n kiểu số nguyên, một tham số là một mảng kiểu ký tự
+void pressAnyKey();//khai báo một phương thức kiểu void
 
-int main() {
-    int key;
-    char fileName[] = "sinhvien.txt";
+int main() {//khai báo phương thức main kiểu số nguyên
+    int key;//khai báo một biến kiểu số nguyên
+    char fileName[] = "sinhvien.txt";//khai báo một mảng kiểu ký tự với giá trị là một file txt
     SV arraySV[MAX];
     int soluongSV = 0;
     int idCount = 0;
@@ -48,6 +48,7 @@ int main() {
     idCount = idLonNhat (arraySV, soluongSV);
 
     while(true) {
+        //hiển thị thông báo/thông tin
         cout << "CHUONG TRINH QUAN LY SINH VIEN C/C++\n";
         cout << "*************************MENU**************************\n";
         cout << "**  1. Them sinh vien.                               **\n";
