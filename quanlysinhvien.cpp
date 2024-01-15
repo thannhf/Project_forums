@@ -39,15 +39,15 @@ void pressAnyKey();//khai báo một phương thức kiểu void
 int main() {//khai báo phương thức main kiểu số nguyên
     int key;//khai báo một biến kiểu số nguyên
     char fileName[] = "sinhvien.txt";//khai báo một mảng kiểu ký tự với giá trị là một file txt
-    SV arraySV[MAX];
-    int soluongSV = 0;
-    int idCount = 0;
+    SV arraySV[MAX];//mảng arraySV chứa tối đa MAX là một định nghĩa define được tham chiếu đến giá trị được khai báo ở trên, tham chiếu đến SV 
+    int soluongSV = 0;//khai báo một biến kiểu số nguyên gán giá trị 0
+    int idCount = 0;//khai báo một biến kiểu số nguyên gán giá trị 0
     
     // nhap danh sach sinh vien tu file
-    soluongSV = docFile(arraySV, fileName);
-    idCount = idLonNhat (arraySV, soluongSV);
+    soluongSV = docFile(arraySV, fileName);//gán giá trị trả về của hàm docFile cho biến soluongSV, hàm docFile đọc dữ liệu từ fileName vào mảng arraySV
+    idCount = idLonNhat(arraySV, soluongSV);//gán giá trị trả về của hàm idLonNhat cho biến idCount, tìm id lớn nhất trong mảng arraySV và soluongSV 
 
-    while(true) {
+    while(true) {//tạo một vòng lặp với điều kiện là luôn đúng
         //hiển thị thông báo/thông tin
         cout << "CHUONG TRINH QUAN LY SINH VIEN C/C++\n";
         cout << "*************************MENU**************************\n";
@@ -62,28 +62,28 @@ int main() {//khai báo phương thức main kiểu số nguyên
         cout << "**  0. Thoat                                         **\n";
         cout << "*******************************************************\n";
         cout << "Nhap tuy chon: ";
-        cin >> key;
-        switch(key){
-            case 1:
-                cout << "\n1. Them sinh vien.";
-                idCount++;
-                nhapSV(arraySV, idCount, soluongSV);
-                printf("\nThem sinh vien thanh cong!");
-                soluongSV++;
-                pressAnyKey();
-                break;
-            case 2:
-                if(soluongSV > 0) {
-                    int id;
-                    cout << "\n2. Cap nhat thong tin sinh vien. ";
-                    cout << "\n Nhap ID: "; cin >> id;
-                    capNhatSV(arraySV, id, soluongSV);
-                }else{
-                    cout << "\nSanh sach sinh vien trong!";
+        cin >> key;//lấy data từ user
+        switch(key){//tạo switch case xử lý các điều kiện là data user nhập vào
+            case 1://nếu đầu vào user nhập là 1
+                cout << "\n1. Them sinh vien.";//hiển thị thông báo
+                idCount++;//cộng một giá trị idCount
+                nhapSV(arraySV, idCount, soluongSV);//gọi hàm nhapSV với 3 tham số với đối số là dữ liệu từ các file lưu trữ
+                printf("\nThem sinh vien thanh cong!");//hiển thị thông báo
+                soluongSV++;//sau khi thêm thành công thì data trong file sinh viên thêm 1 người
+                pressAnyKey();//gọi hàm pressAnyKey trở lại trình màn hình console 
+                break;//dừng thoát điều kiện
+            case 2://nếu đầu vào user nhập là 2
+                if(soluongSV > 0) {//nếu soluongSV trong file > 0 thì
+                    int id;//khai báo biến id kiểu số nguyên
+                    cout << "\n2. Cap nhat thong tin sinh vien. ";//hiển thị thông báo
+                    cout << "\n Nhap ID: "; cin >> id;//hiển thị thông báo và lấy dữ liệu update mới từ người dùng cho id cụ thể
+                    capNhatSV(arraySV, id, soluongSV);//gọi hàm capNhatSV với 3 tham số và các đối số là data trong các file
+                }else{//nếu ngược lại thì
+                    cout << "\nSanh sach sinh vien trong!";//hiển thị thông báo
                 }
-                pressAnyKey();
-                break;
-            case 3:
+                pressAnyKey();//gọi hàm pressAnyKey trở lại màn hình console
+                break;//dừng thoát điều kiện
+            case 3://nếu đầu vào user nhập là 3
                 if(soluongSV > 0) {
                     int id;
                     cout << "\n3. Xoa sinh vien.";
