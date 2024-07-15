@@ -1,0 +1,109 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #25252b;
+}
+.box {
+	position: relative;
+	width:400px;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: repeating-conic-gradient(from var(--a), #ff2770 0%,
+	#ff2770 5%, transparent 5%, transparent 35%, #ff2770 50%);
+	animation: animate 4s linear infinite;
+	border-radius: 20px;
+}
+.box::before {
+	content:'';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: repeating-conic-gradient(from var(--a), #45f3ff 0%,
+	#45f3ff 5%, transparent 5%, transparent 35%, #45f3ff 50%);
+	animation: animate 4s linear infinite;
+	border-radius: 20px;
+	animation-delay: -1s;
+}
+@property --a{
+	syntax:'<angle>';
+	inherits:false;
+	initial-value:0deg;
+}
+@keyframes animate {
+	0% {
+		--a:0deg;
+	}
+	100% {
+		--a:360deg;
+	}
+}
+.box::after {
+	content:'';
+	position: absolute;
+	inset:8px;
+	background: #2d2d39;
+	border-radius: 9px solid #25252b;
+}
+.box form {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap:20px;
+	padding:0 40px;
+	z-index: 10000;
+}
+.box form h2 {
+	color:#fff;
+	font-weight: 600;
+}
+.box form input {
+	position: relative;
+	width:85%;
+	background: rgba(255,255,255,0.1);
+	padding:10px 15px;
+	border:none;
+	outline:none;
+	border-radius: 5px;
+	color:#fff;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+}
+.box form input::placeholder {
+	color: rgba(255,255,255,0.5);
+}
+.box form input[type="submit"] {
+	font-weight: 600;
+	background: #fff;
+	color: #2d2d39;
+	cursor:pointer;
+	transition: 0.5s;
+}
+.box form input[type="submit"]:hover {
+	background: #ff2770;
+}
+.box form .group {
+	width:85%;
+	display:flex;
+	justify-content: space-between;
+}
+.box form .group a {
+	color:rgba(255,255,255,0.75);
+	text-decoration: none;
+}
+.box form .group a:last-child {
+	color:#45f3ff;
+	font-weight: 500;
+}
