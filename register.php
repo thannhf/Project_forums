@@ -3,13 +3,12 @@
 	<head>
 		<title>Register Forums</title>
 		<meta charset="UTF-8"/>
-		<!-- favicon -->
-		<link rel="icon" type="image/x-icon" href="Images/Favicon.png">
-		<link rel="stylesheet" href="css/register.css">
+		<link rel="icon" type="image/x-icon" href="./Models/Images/Favicon.png">
+		<link rel="stylesheet" href="Models/css/register.css">
 	</head>
 	<body>
 		<?php
-			require_once("connect.php");
+			require_once("./Controller/connect.php");
 			if (isset($_POST["btn_submit"])) {
 				$username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 				$password = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -43,10 +42,10 @@
 			<div style="width:45%;border: 1px solid orange;overflow-x:auto;overflow-y:hidden;">
 				<header style="width:100%;height:250px;border:1px solid orange;background-color:black;overflow:hidden;">
 					<?php
-						require_once("file_data_form/data_image_register.php");
+						require_once("./Models/file_data_form/data_image_register.php");
 						echo "<div id='slide_show-container' style='width:100%;'>";
 							for($i = 0; $i < count($linkImage); $i++){
-								echo "<div class='slide'>"."<img src='Images/".$linkImage[$i]."' style='width:100%;height:250px;'/>"."</div>";
+								echo "<div class='slide'>"."<img src='./Models/Images/".$linkImage[$i]."' style='width:100%;height:250px;'/>"."</div>";
 							}
 						echo "</div>";
 					?>
@@ -99,6 +98,6 @@
 				<p><a href="">điều khoản</a> và <a href="#">dịch vụ</a>bạn cần phải nắm rõ và đồng ý</p>
 			</form>
 		</div>
-		<script src="javascript/register.js"></script>
+		<script src="./Models/javascripts/registers.js"></script>
 	</body>
 </html>
