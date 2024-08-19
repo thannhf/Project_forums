@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
@@ -39,3 +40,24 @@
     </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netfylity</title>
+    <link rel="stylesheet" href="build/static/css/main.9d003196.css">
+    <link rel="stylesheet" href="build/static/media/hero-img.4aa7405ca35dbf53101f.jpg">
+    <link rel="icon" href="build/static/media/logo.svg" type="image/x-icon">
+</head>
+<body>
+    <!-- Nhúng ứng dụng React -->
+    <div id="root"></div>
+    <script src="build/static/js/453.ad6eb26e.chunk.js"></script>
+    <!-- <script src="build/static/js/main.ce039786.js"></script> -->
+    <script src="build/static/js/main.63753d43.js"></script>
+</body>
+</html>
+
+>>>>>>> 65cc91a7 (update code)

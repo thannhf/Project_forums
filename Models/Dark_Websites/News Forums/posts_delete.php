@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	include 'posts_connect.php';
 	if(isset($_REQUEST['id']) and $_REQUEST['id']!=""){
@@ -11,4 +12,19 @@
 		$conn->close();
 	}
 	header("Location: posts_add.php");
+=======
+<?php
+	include 'posts_connect.php';
+	if(isset($_REQUEST['id']) and $_REQUEST['id']!=""){
+		$id=$_GET['id'];
+		$sql = "DELETE FROM contentmembers WHERE id='$id'";
+		if ($conn->query($sql) === TRUE) {
+			echo "Xoá thành công!";
+		} else {
+			echo "Error updating record: " . $conn->error;
+		}
+		$conn->close();
+	}
+	header("Location: posts_add.php");
+>>>>>>> 65cc91a7 (update code)
 ?>
