@@ -16,6 +16,7 @@ Yêu cầu<br>
 --> npm: Trình quản lý gói Node.js.
 --> Git: Hệ thống quản lý phiên bản để theo dõi các thay đổi trong mã nguồn.<br>
 --> Webpack: Bộ đóng gói module cho các ứng dụng JavaScript.<br>
+--> next.js: <br>
 --> Babel: Trình biên dịch JavaScript cho phép bạn sử dụng các tính năng JavaScript hiện đại.<br>
 
 -------------------------------------------------------------------------------
