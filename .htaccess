@@ -1,0 +1,1 @@
+ErrorDocument 404 /templates/404.php
