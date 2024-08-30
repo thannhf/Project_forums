@@ -13,7 +13,7 @@ Yêu cầu<br>
 --> Node.js: Môi trường chạy JavaScript.<br>
 --> React.js: Thư viện JavaScript để xây dựng giao diện người dùng.<br>
 --> TypeScript: Superset của JavaScript với khả năng kiểm tra kiểu tĩnh.<br>
---> npm: Trình quản lý gói Node.js.
+--> npm: Trình quản lý gói Node.js.<br>
 --> Git: Hệ thống quản lý phiên bản để theo dõi các thay đổi trong mã nguồn.<br>
 --> Webpack: Bộ đóng gói module cho các ứng dụng JavaScript.<br>
 --> next.js: <br>
