@@ -1,13 +1,12 @@
-
-<?php require_once ("..\..\../Controller/connect.php"); ?>
+<?php include ("./conn/conn.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Image Gallery App</title>
+        <title>Design Games</title>
         <!-- Style CSS -->
-        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="stylesheet" href="./assets/styles.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     </head>
@@ -22,7 +21,6 @@
             <!-- mục thêm ảnh -->
             <div class="image-container" style="overflow-y: auto;">
                 <button type="button" class="btn btn-dark float-right add-image" data-toggle="modal" data-target="#addImageModal">&#43; Add Image</button>
-
                 <button type="button" class="btn btn-secondary float-right cancel-delete" onclick="cancelDelete()" style="display: none;">Cancel</button>
                 <button type="button" class="btn btn-danger float-right delete-image mr-1" style="display: none;">Delete Image/s</button>
 
@@ -213,6 +211,17 @@
                 </div>
             </div>
         </div>
+        <br><hr><br>
+
+        <!-- slide -->
+        <div class="slideshowContainer">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <!-- footer -->
+         
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

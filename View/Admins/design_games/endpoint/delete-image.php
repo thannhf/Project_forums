@@ -1,6 +1,5 @@
-
 <?php
-    require_once ("..\..\../Controller/connect.php");
+include '../conn/conn.php';
 
 if (isset($_GET['image'])) {
     $imageIDs = filter_input(INPUT_GET, 'image', FILTER_SANITIZE_STRING);
@@ -31,7 +30,7 @@ if (isset($_GET['image'])) {
         echo "
         <script>
             alert('Image/s Deleted Successfully');
-            window.location.href = 'http://localhost/Dark_Websites/design_games/index.php';
+            window.location.href = 'http://localhost/View/Admins/design_games/index.php';
         </script>
         ";
         exit();

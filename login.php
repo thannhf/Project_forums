@@ -27,11 +27,8 @@
 						echo "<script>alert('tên đăng nhập hoặc mật khẩu không đúng !')</script>";
 					}else{
 						//admin
-						if($_SESSION['username'] = $username == 'admin' && $_SESSION['password'] = $password == 'admin') {
+						if($_SESSION['username'] = $username && $_SESSION['password'] = $password) {
 							header('Location: ./View/Admins/index.php');
-						} else if($_SESSION['username'] = $username && $_SESSION['password'] = $password) {
-							// user
-							header('Location: ./View/User/index.php');
 						}
 					}
 				}

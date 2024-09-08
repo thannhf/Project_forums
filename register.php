@@ -5,6 +5,7 @@
 		<meta charset="UTF-8"/>
 		<link rel="icon" type="image/x-icon" href="./Models/Images/Favicon.png">
 		<link rel="stylesheet" href="Models/css/register.css">
+		<!-- <link rel="stylesheet" href="Models/Response/.css"> -->
 	</head>
 	<body>
 		<?php
@@ -74,7 +75,7 @@
 			</div>
 
 			<!-- layout right -->
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="width:45%;">
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" style="width:45%;">
 				<h2>Register Forums</h2>
 				<div class="inputBox">
 					<input type="text" id="username" name="username" required><label>UserName</label>

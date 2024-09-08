@@ -1,6 +1,5 @@
-
 <?php
-    require_once ("..\..\../Controller/connect.php");
+include ("../conn/conn.php");
 
 if (isset($_GET['folder'])) {
     $folderID = $_GET['folder'];
@@ -17,7 +16,7 @@ if (isset($_GET['folder'])) {
         echo"
         <script>
             alert('Folder Deleted Successfully');
-            window.location.href = 'http://localhost/Dark_Websites/design_games/index.php';
+            window.location.href = 'http://localhost/View/Admins/design_games/index.php';
         </script>
         ";
         exit();

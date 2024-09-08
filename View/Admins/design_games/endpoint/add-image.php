@@ -1,6 +1,5 @@
-
 <?php
-    require_once ("..\..\../Controller/connect.php");
+    include("../conn/conn.php");
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $folder_id = $_POST['tbl_image_folder_id'];
@@ -29,7 +28,7 @@
                 $stmt->bindParam(':unique_filename', $unique_filename);
                 $stmt->execute();
 
-                header('Location:http://localhost/Dark_Websites/design_games/index.php');
+                header('Location:http://localhost/View/Admins/design_games/index.php');
             } else {
 
                 echo "Error uploading the image.";

@@ -1,6 +1,5 @@
-
 <?php 
-    require_once ("..\..\../Controller/connect.php");
+    include("../conn/conn.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["folder_name"])) {
@@ -14,7 +13,7 @@
                 echo"
                 <script>
                     alert('Folder Added Successfully');
-                    window.location.href = 'http://localhost/Dark_Websites/design_games/index.php';
+                    window.location.href = 'http://localhost/View/Admins/design_games/index.php';
                 </script>
                 ";
                 exit();

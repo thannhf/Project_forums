@@ -26,7 +26,7 @@
             // Tạo tên tệp mới với ID ngẫu nhiên
             $randomAccountNumber = substr(md5(uniqid()), 0, 20);
             $filenameWithRandomID = $randomAccountNumber . '.' . $file_ext;
-            $target = "photo/" . $filenameWithRandomID;
+            $target = "\View\Admins/Image_free/photo/" . $filenameWithRandomID;
         
             // Di chuyển tệp đã tải lên vào thư mục mong muốn
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
